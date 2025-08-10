@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    SpriteRenderer spriteRenderer;
     void Start()
     {
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
-        sr.color = Color.gray;
+        spriteRenderer.color = Color.gray;
     }
 }
