@@ -166,8 +166,8 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &301603112
 MonoBehaviour:
@@ -263,7 +263,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 301603110}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 689bc007be04eff418d59a82b10d0151, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
