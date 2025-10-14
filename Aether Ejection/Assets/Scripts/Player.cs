@@ -15,12 +15,12 @@ public class Player : MonoBehaviour
     private bool jumpRequested = false;
 
     private Rigidbody2D rb;
-    private BoxCollider2D boxCollider;
+    private CapsuleCollider2D capCollider;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        boxCollider = GetComponent<BoxCollider2D>();
+        capCollider = GetComponent<CapsuleCollider2D>();
     }
     private void Update()
     {
@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 groundCheckPos = boxCollider.bounds.center + Vector3.down * (boxCollider.bounds.extents.y - 0.05f);
+        Vector2 groundCheckPos = capCollider.bounds.center + Vector3.down * (capCollider.bounds.extents.y - 0.05f);
         isGrounded = Physics2D.OverlapCircle(groundCheckPos, checkRadius, whatIsGround);
 
         HorizontalMove();

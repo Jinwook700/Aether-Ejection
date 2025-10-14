@@ -320,8 +320,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &301603115
-BoxCollider2D:
+--- !u!70 &301603115
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -329,7 +329,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 301603110}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 689bc007be04eff418d59a82b10d0151, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -353,18 +353,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1.28, y: 1.28}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.88}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.9, y: 0.9}
+  m_Direction: 0
 --- !u!1001 &473935266
 PrefabInstance:
   m_ObjectHideFlags: 0
