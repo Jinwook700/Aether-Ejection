@@ -16,11 +16,13 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
     private CapsuleCollider2D capCollider;
+    private Animator animator;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         capCollider = GetComponent<CapsuleCollider2D>();
+        animator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -52,6 +54,7 @@ public class Player : MonoBehaviour
     {
         float horizontalDir = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(horizontalDir * moveSpeed, rb.velocity.y);
+        animator.SetFloat("xDir", horizontalDir);
     }
     public void JumpMove()
     {
