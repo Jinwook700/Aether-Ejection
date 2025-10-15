@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance { get; private set; }
+
     public float moveSpeed = 5f;
     public float jumpScale = 1f;
 
@@ -20,6 +23,18 @@ public class Player : MonoBehaviour
     private CapsuleCollider2D capCollider;
     private Animator animator;
 
+    private void Awake()
+    {
+        if (Instance == null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
+        DontDestroyOnLoad(gameObject);
+    }
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();    
