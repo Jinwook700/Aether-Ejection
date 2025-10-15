@@ -14,12 +14,14 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     private bool jumpRequested = false;
 
+    private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     private CapsuleCollider2D capCollider;
     private Animator animator;
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();    
         rb = GetComponent<Rigidbody2D>();
         capCollider = GetComponent<CapsuleCollider2D>();
         animator = GetComponent<Animator>();
@@ -54,7 +56,18 @@ public class Player : MonoBehaviour
     {
         float horizontalDir = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(horizontalDir * moveSpeed, rb.velocity.y);
-        animator.SetFloat("xDir", horizontalDir);
+        bool isMoving = Mathf.Abs(horizontalDir) > 0;
+
+        if (horizontalDir > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if (horizontalDir < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+
+        animator.SetBool("isMoving", isMoving);
     }
     public void JumpMove()
     {
