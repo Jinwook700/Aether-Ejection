@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     [Header("Ground Check")]
     public float checkRadius = 0.2f;
+    private Vector2 groundCheckSize = new Vector2(0.9f, 0.1f);
     public LayerMask whatIsGround;
 
     private bool isGrounded;
@@ -36,8 +37,10 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 groundCheckPos = capCollider.bounds.center + Vector3.down * (capCollider.bounds.extents.y - 0.05f);
-        isGrounded = Physics2D.OverlapCircle(groundCheckPos, checkRadius, whatIsGround);
+        Vector2 point = new Vector2(capCollider.bounds.center.x, capCollider.bounds.min.y);
+        Vector2 size = new Vector2(capCollider.size.x * 0.95f, 0.05f);
+
+        isGrounded = Physics2D.OverlapBox(point, size, 0f, whatIsGround);
 
         HorizontalMove();
 
